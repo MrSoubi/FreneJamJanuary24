@@ -32,6 +32,10 @@ PrefabInstance:
       propertyPath: parameters
       value: 
       objectReference: {fileID: 11400000, guid: 89deaefd985c5324aa0706bdb1342398, type: 2}
+    - target: {fileID: 495807658784314633, guid: 18ee44b4c04b1b44eb97c0ab171424e6, type: 3}
+      propertyPath: materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5041065118301908439, guid: 18ee44b4c04b1b44eb97c0ab171424e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

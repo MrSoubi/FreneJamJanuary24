@@ -22,6 +22,7 @@ public class Destroyable : MonoBehaviour
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+        hitPoints = maxHitPoints;
     }
 
     public void OnHit(GameObject dragon, int damage)
@@ -39,6 +40,7 @@ public class Destroyable : MonoBehaviour
     private void UpdateTexture()
     {
         int textureIndex = Mathf.FloorToInt(hitPoints / (maxHitPoints/materials.Count));
+        Debug.Log(materials.Count + " materials, " + hitPoints + " hit points left");
         meshRenderer.SetMaterials(new List<Material> { materials[textureIndex] });
     }
 
@@ -47,7 +49,7 @@ public class Destroyable : MonoBehaviour
         //var localExplosion = Instantiate<GameObject>(explosion);
         //localExplosion.transform.position = transform.position;
 
-        dragon.GetComponent<DragonController>().Grow(1.2f);
+        //dragon.GetComponent<DragonController>().Grow(1.2f);
 
         Destroy(gameObject);
     }

@@ -7,6 +7,9 @@ public class DragonController : MonoBehaviour
     Animator m_Animator;
     Rigidbody m_Rigidbody;
 
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotationSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,19 +49,19 @@ public class DragonController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Z)) // Move forward
         {
-            m_Rigidbody.MovePosition(transform.position + Time.deltaTime * transform.forward * 100.0f);
+            m_Rigidbody.MovePosition(transform.position + Time.deltaTime * transform.forward * moveSpeed);
         }
         if (Input.GetKey(KeyCode.S)) // Move backward
         {
-            m_Rigidbody.MovePosition(transform.position - Time.deltaTime * transform.forward * 100.0f);
+            m_Rigidbody.MovePosition(transform.position - Time.deltaTime * transform.forward * moveSpeed);
         }
         if (Input.GetKey(KeyCode.Q)) // Rotate left
         {
-            m_Rigidbody.MoveRotation(Quaternion.AngleAxis(transform.rotation.eulerAngles.y - 360.0f * Time.deltaTime, Vector3.up));
+            m_Rigidbody.MoveRotation(Quaternion.AngleAxis(transform.rotation.eulerAngles.y - rotationSpeed * Time.deltaTime, Vector3.up));
         }
         if (Input.GetKey(KeyCode.D)) // Rotate right
         {
-            m_Rigidbody.MoveRotation(Quaternion.AngleAxis(transform.rotation.eulerAngles.y + 360.0f * Time.deltaTime, Vector3.up));
+            m_Rigidbody.MoveRotation(Quaternion.AngleAxis(transform.rotation.eulerAngles.y + rotationSpeed * Time.deltaTime, Vector3.up));
         }
     }
 
