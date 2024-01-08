@@ -36,9 +36,9 @@ public class DragonController : MonoBehaviour
             
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 15.0f))
             {
-                if (hit.collider.GetComponent<Building>() != null)
+                if (hit.collider.GetComponent<Destroyable>() != null)
                 {
-                    hit.collider.gameObject.GetComponent<Building>().OnHit(transform.gameObject);
+                    hit.collider.gameObject.GetComponent<Destroyable>().OnHit(transform.gameObject, 1);
                 }
             }
         }
