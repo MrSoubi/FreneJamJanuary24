@@ -38,7 +38,7 @@ public class DragonController : MonoBehaviour
             {
                 if (hit.collider.GetComponent<Building>() != null)
                 {
-                    hit.collider.gameObject.GetComponent<Building>().OnHit();
+                    hit.collider.gameObject.GetComponent<Building>().OnHit(transform.gameObject);
                 }
             }
         }
@@ -60,5 +60,10 @@ public class DragonController : MonoBehaviour
         {
             m_Rigidbody.MoveRotation(Quaternion.AngleAxis(transform.rotation.eulerAngles.y + 360.0f * Time.deltaTime, Vector3.up));
         }
+    }
+
+    public void Grow(float rate)
+    {
+        transform.localScale *= rate;
     }
 }

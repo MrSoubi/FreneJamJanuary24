@@ -25,7 +25,7 @@ public class Building : MonoBehaviour
         
     }
 
-    public void OnHit()
+    public void OnHit(GameObject dragon)
     {
         hitPoints--;
         
@@ -40,13 +40,17 @@ public class Building : MonoBehaviour
         }
         if (hitPoints <= 0)
         {
-            Demolish();
+            Demolish(dragon);
         }
     }
 
-    private void Demolish()
+    private void Demolish(GameObject dragon)
     {
-        Instantiate<GameObject>(explosion);
+        var localExplosion = Instantiate<GameObject>(explosion);
+        localExplosion.transform.position = transform.position;
+
+        dragon.GetComponent<DragonController>().Grow(1.2f);
+
         Destroy(gameObject);
     }
 }
