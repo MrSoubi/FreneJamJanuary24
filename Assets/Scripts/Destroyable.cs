@@ -23,6 +23,11 @@ public class Destroyable : MonoBehaviour
     {
         meshRenderer = GetComponent<MeshRenderer>();
         hitPoints = maxHitPoints;
+
+        if (materials.Count == 0)
+        {
+            materials.Add(meshRenderer.material);
+        }
     }
 
     public void OnHit(GameObject dragon, int damage)

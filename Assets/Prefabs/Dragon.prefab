@@ -470,8 +470,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.1473713, y: 3.6118433, z: 6.4281044}
-  m_Center: {x: -0.14954971, y: 1.879803, z: -0.07370114}
+  m_Size: {x: 4.1473713, y: 1.9282039, z: 3.486886}
+  m_Center: {x: -0.14954971, y: 1.0379677, z: 0.10942237}
 --- !u!1 &1737614777216213456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,6 +1387,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1780848787332909356}
+  - component: {fileID: 2543188279080204353}
+  - component: {fileID: 6244638501151861682}
   m_Layer: 0
   m_Name: JawTip
   m_TagString: Untagged
@@ -1409,6 +1411,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7896731898971847361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2543188279080204353
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4748965311924247396}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 84.7
+  m_Center: {x: 0, y: 7.31, z: -29.07}
+--- !u!114 &6244638501151861682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4748965311924247396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc93b4b18164b344e85b2aac803063f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4822920510225253906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,6 +1547,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 788418844178153948}
+  - component: {fileID: 2440743566261633417}
+  - component: {fileID: 6929138243952550090}
   m_Layer: 0
   m_Name: Tail02
   m_TagString: Untagged
@@ -1535,6 +1572,39 @@ Transform:
   - {fileID: 7145309876419311777}
   m_Father: {fileID: 8313114421774585534}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2440743566261633417
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5236046722228064330}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 84.96
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6929138243952550090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5236046722228064330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640af2d77c7b41147b0c47a54c0d0c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5344999697004226721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,6 +1840,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8772523701343664501}
+  - component: {fileID: 1725978770692796150}
+  - component: {fileID: 6829774317612569358}
   m_Layer: 0
   m_Name: TailEnd
   m_TagString: Untagged
@@ -1787,11 +1859,44 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.042566836, w: 0.99909365}
   m_LocalPosition: {x: -132.38406, y: 2.842171e-14, z: -2.5570412e-14}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7145309876419311777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1725978770692796150
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176965006657486373}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 91.29
+  m_Center: {x: -47.6, y: 6.3, z: 0}
+--- !u!114 &6829774317612569358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176965006657486373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640af2d77c7b41147b0c47a54c0d0c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6314385676629962964
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,6 +2259,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7145309876419311777}
+  - component: {fileID: 6317910784630596101}
+  - component: {fileID: 5117923804813288830}
   m_Layer: 0
   m_Name: Tail03
   m_TagString: Untagged
@@ -2177,6 +2284,39 @@ Transform:
   - {fileID: 8772523701343664501}
   m_Father: {fileID: 788418844178153948}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6317910784630596101
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7828240895516139648}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 75
+  m_Center: {x: -30.47, y: 0, z: 0}
+--- !u!114 &5117923804813288830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7828240895516139648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640af2d77c7b41147b0c47a54c0d0c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8508837312708049196
 GameObject:
   m_ObjectHideFlags: 0

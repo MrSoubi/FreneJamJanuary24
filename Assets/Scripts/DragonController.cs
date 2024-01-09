@@ -10,6 +10,7 @@ public class DragonController : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,21 +32,16 @@ public class DragonController : MonoBehaviour
         }
 
         // Basic attack
-        // Careful, the target detection is not really good, should use the head as the origin of the raycast for more realistic behaviour
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack") && !m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Tail Attack"))
         {
             m_Animator.SetTrigger("basicAttack");
-            RaycastHit hit;
-            
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 15.0f))
-            {
-                if (hit.collider.GetComponent<Destroyable>() != null)
-                {
-                    hit.collider.gameObject.GetComponent<Destroyable>().OnHit(transform.gameObject, 1);
-                }
-            }
         }
 
+        // Tail attack
+        if (Input.GetMouseButtonDown(1) && !m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Tail Attack") && !m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack"))
+        {
+            m_Animator.SetTrigger("tailAttack");
+        }
 
         if (Input.GetKey(KeyCode.Z)) // Move forward
         {

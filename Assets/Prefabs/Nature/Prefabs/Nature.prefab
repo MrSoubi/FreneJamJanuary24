@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ca0cf15d86f9049b49c0a05f7f3522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoints: 0
-  experiencePoints: 0
-  rank: 0
+  maxHitPoints: 1
+  experiencePoints: 1
+  rank: 1
   materials: []
 --- !u!33 &2868959725192580372
 MeshFilter:

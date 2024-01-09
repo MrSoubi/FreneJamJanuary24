@@ -1677,6 +1677,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f32dfddb033d3e40b5841bc53cc1689, type: 3}
+--- !u!1 &1527734774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4748965311924247396, guid: 6c9551639ed97a84282e80bdf95a54af, type: 3}
+  m_PrefabInstance: {fileID: 8818647258013634611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1581583485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2658,13 +2663,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dragon
       objectReference: {fileID: 0}
+    - target: {fileID: 1518070366724965633, guid: 6c9551639ed97a84282e80bdf95a54af, type: 3}
+      propertyPath: jaw
+      value: 
+      objectReference: {fileID: 1527734774}
+    - target: {fileID: 3253863857129184025, guid: 6c9551639ed97a84282e80bdf95a54af, type: 3}
+      propertyPath: m_Size.y
+      value: 4.0436754
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253863857129184025, guid: 6c9551639ed97a84282e80bdf95a54af, type: 3}
+      propertyPath: m_Center.y
+      value: 2.09569
+      objectReference: {fileID: 0}
     - target: {fileID: 3427102575715155944, guid: 6c9551639ed97a84282e80bdf95a54af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3427102575715155944, guid: 6c9551639ed97a84282e80bdf95a54af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 3427102575715155944, guid: 6c9551639ed97a84282e80bdf95a54af, type: 3}
       propertyPath: m_LocalPosition.z
