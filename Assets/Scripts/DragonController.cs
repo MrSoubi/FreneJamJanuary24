@@ -33,7 +33,11 @@ public class DragonController : MonoBehaviour
         }
 
         ManageAnimations();
-        ManageMovement();
+    }
+
+    private void FixedUpdate()
+    {
+        ManageMovement(true);
     }
 
     private void ManageAnimations()
@@ -61,16 +65,35 @@ public class DragonController : MonoBehaviour
         }
     }
 
-    private void ManageMovement()
+    private void ManageMovement(bool newMethod)
     {
-        if (Input.GetKey(KeyCode.Z)) // Move forward
+        if (newMethod)
         {
-            m_Rigidbody.MovePosition(transform.position + moveSpeed * Time.deltaTime * transform.forward * (1.0f + rank/2.0f));
+            if (Input.GetKey(KeyCode.Z)) // Move forward
+            {
+                m_Rigidbody.velocity = moveSpeed * Time.deltaTime * transform.forward * (1.0f + rank / 2.0f);
+            }
+            else if (Input.GetKey(KeyCode.S)) // Move backward
+            {
+                m_Rigidbody.velocity = - moveSpeed * Time.deltaTime * transform.forward * (1.0f + rank / 2.0f);
+            }
+            else
+            {
+                m_Rigidbody.velocity = Vector3.zero;
+            }
         }
-        if (Input.GetKey(KeyCode.S)) // Move backward
+        else
         {
-            m_Rigidbody.MovePosition(transform.position - moveSpeed * Time.deltaTime * transform.forward * (1.0f + rank / 2.0f));
+            if (Input.GetKey(KeyCode.Z)) // Move forward
+            {
+                m_Rigidbody.MovePosition(transform.position + moveSpeed * Time.deltaTime * transform.forward * (1.0f + rank / 2.0f));
+            }
+            if (Input.GetKey(KeyCode.S)) // Move backward
+            {
+                m_Rigidbody.MovePosition(transform.position - moveSpeed * Time.deltaTime * transform.forward * (1.0f + rank / 2.0f));
+            }
         }
+
         if (Input.GetKey(KeyCode.Q)) // Rotate left
         {
             m_Rigidbody.MoveRotation(Quaternion.AngleAxis(transform.rotation.eulerAngles.y - rotationSpeed * Time.deltaTime, Vector3.up));
