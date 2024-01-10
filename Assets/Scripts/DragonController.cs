@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class DragonController : MonoBehaviour
 {
     Animator m_Animator;
@@ -106,7 +106,7 @@ public class DragonController : MonoBehaviour
 
     public void Grow()
     {
-        Debug.Log(rank);
-        transform.localScale *= growthRate;
+        transform.DOScale(transform.localScale * growthRate, 1);
+        //transform.localScale *= growthRate;
     }
 }
