@@ -30,7 +30,7 @@ public class Destroyable : MonoBehaviour
         }
     }
 
-    public void OnHit(GameObject dragon, int damage)
+    public void OnHit(int damage)
     {
         hitPoints -= damage;
 
@@ -38,24 +38,19 @@ public class Destroyable : MonoBehaviour
 
         if (hitPoints <= 0)
         {
-            Demolish(dragon);
+            Demolish();
         }
     }
 
     private void UpdateTexture()
     {
         int textureIndex = Mathf.FloorToInt(hitPoints / (maxHitPoints/materials.Count));
-        Debug.Log(materials.Count + " materials, " + hitPoints + " hit points left");
         meshRenderer.SetMaterials(new List<Material> { materials[textureIndex] });
     }
 
-    private void Demolish(GameObject dragon)
+    private void Demolish()
     {
-        //var localExplosion = Instantiate<GameObject>(explosion);
-        //localExplosion.transform.position = transform.position;
-
-        //dragon.GetComponent<DragonController>().Grow(1.2f);
-
+        GameManager.AddScore(experiencePoints);
         Destroy(gameObject);
     }
 }

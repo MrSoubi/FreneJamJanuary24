@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 1
-  experiencePoints: 1
+  experiencePoints: 5
   rank: 1
   materials:
   - {fileID: 0}

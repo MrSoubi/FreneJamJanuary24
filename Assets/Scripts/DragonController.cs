@@ -9,17 +9,34 @@ public class DragonController : MonoBehaviour
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float growthRate;
 
+    private int rank;
 
     // Start is called before the first frame update
     void Start()
     {
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
+
+        rank = 1;
     }
 
     // Update is called once per frame
     void Update()
+    {
+        if (GameManager.GetRank() > rank)
+        {
+            //Debug.Log(GameManager.GetRank());
+            rank = GameManager.GetRank();
+            Grow();
+        }
+
+        ManageAnimations();
+        ManageMovement();
+    }
+
+    private void ManageAnimations()
     {
         // Run animation
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
@@ -42,14 +59,17 @@ public class DragonController : MonoBehaviour
         {
             m_Animator.SetTrigger("tailAttack");
         }
+    }
 
+    private void ManageMovement()
+    {
         if (Input.GetKey(KeyCode.Z)) // Move forward
         {
-            m_Rigidbody.MovePosition(transform.position + Time.deltaTime * transform.forward * moveSpeed);
+            m_Rigidbody.MovePosition(transform.position + moveSpeed * Time.deltaTime * transform.forward * (1.0f + rank/2.0f));
         }
         if (Input.GetKey(KeyCode.S)) // Move backward
         {
-            m_Rigidbody.MovePosition(transform.position - Time.deltaTime * transform.forward * moveSpeed);
+            m_Rigidbody.MovePosition(transform.position - moveSpeed * Time.deltaTime * transform.forward * (1.0f + rank / 2.0f));
         }
         if (Input.GetKey(KeyCode.Q)) // Rotate left
         {
@@ -61,8 +81,9 @@ public class DragonController : MonoBehaviour
         }
     }
 
-    public void Grow(float rate)
+    public void Grow()
     {
-        transform.localScale *= rate;
+        Debug.Log(rank);
+        transform.localScale *= growthRate;
     }
 }
