@@ -51,6 +51,7 @@ MonoBehaviour:
   maxHitPoints: 1
   experiencePoints: 1
   rank: 1
+  particleEffect: {fileID: 2353600328335836179, guid: ceec7516237b4104b94300043ca39784, type: 3}
   materials: []
 --- !u!33 &2868959725192580372
 MeshFilter:

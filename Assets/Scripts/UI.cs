@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -15,14 +16,49 @@ public class UI : MonoBehaviour
 
     TMP_Text rankText;
     TMP_Text scoreText;
+    TMP_Text timerText;
+    GameObject endGame;
+
+    [SerializeField] GameObject dragon;
+
+    float timer;
 
     private void Start()
     {
         rankText = transform.Find("TextRank").GetComponent<TMP_Text>();
         scoreText = transform.Find("TextScore").GetComponent<TMP_Text>();
+        timerText = transform.Find("TextTimer").GetComponent <TMP_Text>();
+
+        endGame = transform.Find("EndGame").gameObject;
+        endGame.SetActive(false);
+
+        timer = 60;
 
         UpdateScore();
         UpdateRank();
+        UpdateTimer();
+    }
+
+    public void Restart()
+    {
+        scoreText.text = "0";
+        rankText.text = "1";
+        GameManager.Initialize();
+        SceneManager.LoadScene(0);
+    }
+
+    private void Update()
+    {
+        if (timer > 0)
+        {
+            UpdateTimer();
+        }
+        else
+        {
+            endGame.transform.Find("Score").GetComponent<TMP_Text>().text = scoreText.text;
+            endGame.SetActive(true);
+            dragon.GetComponent<DragonController>().enabled = false;
+        }
     }
 
     public void UpdateScore()
@@ -37,5 +73,16 @@ public class UI : MonoBehaviour
         rankText.text = GameManager.GetRank().ToString();
         rankText.rectTransform.DOScale(Vector3.one * 3f, 0.5f).SetEase(Ease.OutBack);
         rankText.rectTransform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+    }
+
+    public void UpdateTimer()
+    {
+        timer -= Time.deltaTime;
+        timerText.text = Mathf.Floor(timer).ToString() + "'";
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class GameManager
 {
@@ -41,7 +42,6 @@ public static class GameManager
         localRank = localRank / a;
         localRank = Mathf.Pow(Mathf.Max(localRank, 0), 1/n);
 
-        Debug.Log(localRank + " | " + rank + " score : " + score);
         return (int)localRank;
     }
 
@@ -59,5 +59,11 @@ public static class GameManager
     public static float GetScore()
     {
         return score;
+    }
+
+    public static void Initialize()
+    {
+        score = 0;
+        rank = 1;
     }
 }

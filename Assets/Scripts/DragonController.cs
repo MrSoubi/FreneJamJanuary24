@@ -13,6 +13,7 @@ public class DragonController : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float growthRate;
+    [SerializeField] private GameObject levelUpParticle;
 
     private int rank;
 
@@ -24,6 +25,8 @@ public class DragonController : MonoBehaviour
         m_AudioSource = GetComponent<AudioSource>();
 
         rank = 1;
+
+        //GameManager.Initialize();
     }
 
     // Update is called once per frame
@@ -31,7 +34,6 @@ public class DragonController : MonoBehaviour
     {
         if (GameManager.GetRank() > rank)
         {
-            //Debug.Log(GameManager.GetRank());
             rank = GameManager.GetRank();
             Grow();
         }
@@ -112,6 +114,9 @@ public class DragonController : MonoBehaviour
     {
         transform.DOScale(transform.localScale * growthRate, 1);
         m_AudioSource.Play();
+        var localParticle = Instantiate(levelUpParticle);
+        localParticle.transform.position = transform.position;
+        localParticle.transform.localScale = localParticle.transform.localScale.magnitude * transform.localScale;
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -11,6 +11,7 @@ public class Destroyable : MonoBehaviour
     [SerializeField] private int maxHitPoints;
     [SerializeField] private int experiencePoints;
     [SerializeField] private int rank;
+    [SerializeField] private GameObject particleEffect;
 
     [SerializeField] private List<Material> materials;
 
@@ -52,12 +53,20 @@ public class Destroyable : MonoBehaviour
     private void UpdateTexture()
     {
         int textureIndex = Mathf.FloorToInt(hitPoints / (maxHitPoints/materials.Count));
-        meshRenderer.SetMaterials(new List<Material> { materials[textureIndex] });
+        if (textureIndex > 0)
+        {
+            meshRenderer.SetMaterials(new List<Material> { materials[textureIndex] });
+        }
     }
 
     public void Demolish()
     {
         GameManager.AddScore(experiencePoints);
+        if (particleEffect != null)
+        {
+            var localParticle = Instantiate(particleEffect);
+            localParticle.transform.position = transform.position;
+        }
         Destroy(gameObject);
     }
 
