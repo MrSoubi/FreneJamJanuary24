@@ -2548,6 +2548,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5366288118892995685, guid: 3c716dd64deb6d844b14a2f53d798e9c, type: 3}
   m_PrefabInstance: {fileID: 1496252590}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &437508749 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3167589845013787257, guid: 6c9551639ed97a84282e80bdf95a54af, type: 3}
+  m_PrefabInstance: {fileID: 8818647258013634611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &437508753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437508749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78da3f00f3328541b4526c0b0b5ec5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineThickness: 1.25
+  lineIntensity: 0.5
+  fillAmount: 0
+  lineColor0: {r: 1, g: 0, b: 0, a: 1}
+  lineColor1: {r: 0, g: 1, b: 0, a: 1}
+  lineColor2: {r: 0, g: 0, b: 1, a: 1}
+  additiveRendering: 0
+  backfaceCulling: 1
+  fillColor: {r: 0, g: 0, b: 1, a: 1}
+  useFillColor: 0
+  cornerOutlines: 0
+  addLinesBetweenColors: 0
+  scaleWithScreenSize: 1
+  alphaCutoff: 0.5
+  flipY: 0
+  sourceCamera: {fileID: 0}
+  autoEnableOutlines: 0
+  outlineCamera: {fileID: 0}
+  outlineShaderMaterial: {fileID: 0}
+  renderTexture: {fileID: 0}
+  extraRenderTexture: {fileID: 0}
 --- !u!4 &454882337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5366288118892995685, guid: 3c716dd64deb6d844b14a2f53d798e9c, type: 3}
@@ -8731,8 +8769,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1357753319}
+  - component: {fileID: 1357753320}
   m_Layer: 0
-  m_Name: Destructibles
+  m_Name: Destroyables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8937,6 +8976,18 @@ Transform:
   - {fileID: 782628376}
   m_Father: {fileID: 764311548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1357753320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357753318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03628c168287c1a4d8c8a8dee9dfca74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1362071437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5366288118892995685, guid: 3c716dd64deb6d844b14a2f53d798e9c, type: 3}
@@ -14617,7 +14668,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3167589845013787257, guid: 6c9551639ed97a84282e80bdf95a54af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 437508753}
   m_SourcePrefab: {fileID: 100100000, guid: 6c9551639ed97a84282e80bdf95a54af, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

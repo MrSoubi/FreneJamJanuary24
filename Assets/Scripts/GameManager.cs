@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,13 +23,14 @@ public static class GameManager
 
     // Note that xp points and score are the same thing.
 
-    static float a = 10;
+    static float a = 5;
     static float b = 10;
-    static float n = 2.5f;
+    static float n = 2.3f;
 
     public static void AddScore(int points)
     {
         score += points;
+        UI.instance.GetComponent<UI>().UpdateScore();
     }
 
     public static int CalculateRankFromScore()
@@ -39,7 +41,7 @@ public static class GameManager
         localRank = localRank / a;
         localRank = Mathf.Pow(Mathf.Max(localRank, 0), 1/n);
 
-        Debug.Log(localRank + " score : " + score);
+        Debug.Log(localRank + " | " + rank + " score : " + score);
         return (int)localRank;
     }
 
@@ -48,8 +50,14 @@ public static class GameManager
         if (rank < CalculateRankFromScore())
         {
             rank = CalculateRankFromScore();
+            UI.instance.GetComponent<UI>().UpdateRank();
         }
 
         return rank;
+    }
+
+    public static float GetScore()
+    {
+        return score;
     }
 }

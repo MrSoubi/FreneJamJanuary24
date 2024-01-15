@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using cakeslice;
+using NUnit.Framework.Interfaces;
 
 public class Destroyable : MonoBehaviour
 {
@@ -24,6 +26,8 @@ public class Destroyable : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         hitPoints = maxHitPoints;
 
+        experiencePoints = rank * rank;
+
         if (materials.Count == 0)
         {
             materials.Add(meshRenderer.material);
@@ -32,13 +36,16 @@ public class Destroyable : MonoBehaviour
 
     public void OnHit(int damage)
     {
-        hitPoints -= damage;
-
-        UpdateTexture();
-
-        if (hitPoints <= 0)
+        if (rank <= GameManager.GetRank())
         {
-            Demolish();
+            hitPoints -= damage;
+
+            UpdateTexture();
+
+            if (hitPoints <= 0)
+            {
+                Demolish();
+            }
         }
     }
 
@@ -48,9 +55,19 @@ public class Destroyable : MonoBehaviour
         meshRenderer.SetMaterials(new List<Material> { materials[textureIndex] });
     }
 
-    private void Demolish()
+    public void Demolish()
     {
         GameManager.AddScore(experiencePoints);
         Destroy(gameObject);
+    }
+
+    public void SetOutline(int outline)
+    {
+        transform.GetComponent<Outline>().color = outline;
+    }
+
+    public int GetRank()
+    {
+        return rank;
     }
 }

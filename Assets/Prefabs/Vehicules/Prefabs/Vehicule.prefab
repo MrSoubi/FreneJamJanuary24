@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -3063585079233095892}
   - component: {fileID: -6809139221273350739}
   - component: {fileID: 2789780088542489199}
+  - component: {fileID: 2696399362811060671}
   m_Layer: 0
   m_Name: Vehicule
   m_TagString: Untagged
@@ -122,3 +123,17 @@ MonoBehaviour:
   experiencePoints: 1
   rank: 1
   materials: []
+--- !u!114 &2696399362811060671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7303090069823709627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0

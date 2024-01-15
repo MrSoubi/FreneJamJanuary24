@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using NUnit.Framework.Interfaces;
+
 public class DragonController : MonoBehaviour
 {
     Animator m_Animator;
     Rigidbody m_Rigidbody;
+    AudioSource m_AudioSource;
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
@@ -18,6 +21,7 @@ public class DragonController : MonoBehaviour
     {
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
+        m_AudioSource = GetComponent<AudioSource>();
 
         rank = 1;
     }
@@ -107,6 +111,17 @@ public class DragonController : MonoBehaviour
     public void Grow()
     {
         transform.DOScale(transform.localScale * growthRate, 1);
-        //transform.localScale *= growthRate;
+        m_AudioSource.Play();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.GetComponent<Destroyable>() != null)
+        {
+            if (collision.collider.GetComponent<Destroyable>().GetRank() <= rank - 2)
+            {
+                collision.collider.GetComponent<Destroyable>().Demolish();
+            }
+        }
     }
 }
