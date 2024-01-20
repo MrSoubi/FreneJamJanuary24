@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class UI : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class UI : MonoBehaviour
     TMP_Text scoreText;
     TMP_Text timerText;
     GameObject endGame;
+    GameObject tuto;
 
     [SerializeField] GameObject dragon;
 
@@ -31,6 +33,9 @@ public class UI : MonoBehaviour
 
         endGame = transform.Find("EndGame").gameObject;
         endGame.SetActive(false);
+
+        tuto = transform.Find("Tuto").gameObject;
+        tuto.SetActive(true);
 
         timer = 60;
 
@@ -49,11 +54,12 @@ public class UI : MonoBehaviour
 
     private void Update()
     {
-        if (timer > 0)
+        if (timer > 0 && !tuto.activeSelf)
         {
             UpdateTimer();
         }
-        else
+        
+        if (timer < 0)
         {
             endGame.transform.Find("Score").GetComponent<TMP_Text>().text = scoreText.text;
             endGame.SetActive(true);
@@ -84,5 +90,10 @@ public class UI : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void Play()
+    {
+        tuto.SetActive(false);
     }
 }
